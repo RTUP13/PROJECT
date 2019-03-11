@@ -5,7 +5,7 @@ Plusieurs taches à réaliser :
 
 Gestion de projet - Mahine 
 
-Serveur - Moustapha
+Serveur - Moustapha Mahine
 
 Sonde | JSON  - Yann Hugo
 
