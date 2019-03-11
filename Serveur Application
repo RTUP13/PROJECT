@@ -1,9 +1,3 @@
-
-
-
-Etape explication serveur :
--
--
--
--
--
+Serveur :
+Après l'import de JSON,
+On utilise principalement du Javascript et du python.
