@@ -9,7 +9,7 @@ Serveur - Moustapha Mahine
 
 Sonde | JSON  - Yann Hugo
 
-Protocole RTNP  - Noé
+Protocole RTNP  - Noé Moustapha Yann Hugo
 
 Interface graphique - HTML/CSS à voir à la fin
 ## Base de données des équipements du réseau
