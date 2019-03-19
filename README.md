@@ -12,9 +12,9 @@ Sonde | JSON  - Yann Hugo
 Protocole RTNP  - Noé Moustapha Yann Hugo
 
 Interface graphique - HTML/CSS à voir à la fin
-## Base de données des équipements du réseau
+# Base de données des équipements du réseau
 
-# Utilisation
+## Utilisation
 ### Récupération des hôtes présent dans la base de données.
 Les réponses seront de la forme suivante
 
