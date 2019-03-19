@@ -1,1 +1,94 @@
 
+#Fichier HTML :
+#template.html : la page d'accueil :
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+    <link rel="stylesheet" href="template.css" />
+        <title>My Gem</title>
+    </head>
+
+    <body>
+    <center><p><b>My Gem</b></p></center>
+    <center><p>Bonjour &agrave; tous !</p></center>
+    <br>
+    <p>Bienvenue sur la page d'accueil de l'application de supervision My Gem !</p>
+    <hr>
+    <p>Cette application permet &agrave; son utilisateur de surveiller l'&eacute;tat des machines de son r&eacute;seau.</p>
+    <p></p>
+        <!--<img src="/home/student/905/11701053/Documents/TemplateHTML/exterieur-iutv.jpg" alt="exterieur-iutv.jpg"/>-->
+    <center><img
+                src="/home/student/905/11701053/Documents/TemplateHTML/exterieur-iutv.jpg"
+             alt=""
+             height="500px"
+             width="800px"
+    /></center>
+    <hr>
+    <center>
+    <ul>
+          <li>Pour acc&eacute;der &agrave; la fiche de la machine num&eacute;ro 0, <a href="machine.html">cliquez ici</a>.</li>
+        <li>Pour acc&eacute;der &agrave; la fiche de la machine num&eacute;ro 1, <a href="machine1.html">cliquez ici</a>.</li>
+        <li>Pour acc&eacute;der &agrave; la fiche de la machine num&eacute;ro 2, <a href="machine2.html">cliquez ici</a>.</li>
+    </ul>
+    </center>
+    </body>
+</html>
+
+=====================================================================================================================
+#machine2.html : la fiche de supervision d'une machine.
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+    <link rel="stylesheet" href="machine2.css" />
+        <title>My Gem : Fiche de supervision</title>
+    </head>
+
+    <body>
+    <center><p><b> My Gem </b></p></center>
+    <hr>
+    <center><p><i>Fiche de supervision de la machine 2</i></p><br></center>
+    <p></p>
+    <center>
+    <table>
+            <thead>
+                <tr>
+                    <th colspan="2">Nom de la machine : x </th>
+                </tr>
+            </thead>
+                <tbody>
+                    <tr>
+                            <td>Temp&eacute;rature du CPU en degr&eacute;s </td>
+                            <td>x</td>
+                </tr>
+                    <td>M&eacute;moire libre en Mo </td>
+                            <td>x</td>
+                    </tr>
+                    <td>Temps &eacute;coul&eacute; depuis le dernier arr&ecirc;t en secondes  </td>
+                            <td>x</td>
+                </tr>
+               </tbody>
+    </table>
+    <br>
+    </center>    
+    <hr>
+    <center><img
+                src="/home/student/905/11701053/Documents/TemplateHTML/exterieur-iutv.jpg"
+             alt=""
+             height="500px"
+             width="800px"
+    /></center>
+    <!-- <form method="get" action="URL">-->
+    <!-- </form>-->
+    </body>
+</html>
+
+
+
+=====================================================================================================================
+=====================================================================================================================
+=====================================================================================================================
+=====================================================================================================================
