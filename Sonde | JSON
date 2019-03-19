@@ -1,3 +1,13 @@
-Code Sonde :
+#!/bin/usr/python
 
-Travailler directement sur ce fichier
+import os
+import json
+import sys
+
+D=dict()
+
+f=os.popen('free -m | head -n2 | tail -n1 | cut -d" " -f20')
+D["TailleDispo"]=f.readline().strip()
+
+A=json.dumps(D)
+print(A)
