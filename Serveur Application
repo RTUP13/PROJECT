@@ -1,3 +1,87 @@
-Serveur :
-Après l'import de JSON,
-On utilise principalement du Javascript et du python.
+Génération dynamique du html :
+
+#! /usr/bin/python
+# -*- coding:utf-8 -*-
+
+import json
+
+utilisateur_dict = {"nom_utilisateur": "mygem"}
+temperature_dict = {"temperature": "30"}
+memoire_dict = {"memoire": "20"}
+temps_connexion_dict = {"temps_connexion": "5054"}
+
+nom_utilisateur_json = json.dumps(utilisateur_dict)
+temperature_json = json.dumps(temperature_dict)
+memoire_json = json.dumps(memoire_dict)
+temps_connexion_json = json.dumps(temps_connexion_dict)
+
+utilisateur_dict = json.loads(nom_utilisateur_json)
+temperature_dict = json.loads(temperature_json)
+memoire_dict = json.loads(memoire_json)
+temps_connexion_dict = json.loads(temps_connexion_json)
+
+nom_utilisateur = utilisateur_dict["nom_utilisateur"]
+temperature = temperature_dict["temperature"]
+memoire = memoire_dict["memoire"]
+temps_connexion = temps_connexion_dict["temps_connexion"]
+
+from flask import Flask, render_template
+
+app = Flask(__name__)
+
+@app.route('/')
+def fiche():
+    return render_template('fiche.html', nom_utilisateur=nom_utilisateur, temperature=temperature, memoire=memoire, temps_connexion=temps_connexion)
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
+A l'aide d'une template html :
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+    <link rel="stylesheet" href="machine2.css" />
+        <title>My Gem : Fiche de supervision</title>
+    </head>
+
+    <body>
+    <center><p><b> My Gem </b></p></center>
+    <hr>
+    <center><p><i>Fiche de supervision de la machine 1</i></p><br></center>
+    <p></p>
+    <center>
+    <table>
+            <thead>
+                <tr>
+                    <th colspan="2">Nom de la machine : {{nom_utilisateur}} </th>
+                </tr>
+            </thead>
+                <tbody>
+                    <tr>
+                            <td>Temp&eacute;rature du CPU en degr&eacute;s </td>
+                            <td>{{temperature}}</td>
+                </tr>
+                    <td>M&eacute;moire libre en Mo </td>
+                            <td>{{memoire}}</td>
+                    </tr>
+                    <td>Temps &eacute;coul&eacute; depuis le dernier arr&ecirc;t en secondes  </td>
+                            <td>{{temps_connexion}}</td>
+                </tr>
+               </tbody>
+    </table>
+    <br>
+    </center>
+    <hr>
+    <center><img
+                src="/home/student/905/11701053/Documents/TemplateHTML/exterieur-iutv.jpg"
+             alt=""
+             height="500px"
+             width="800px"
+    /></center>
+    <!-- <form method="get" action="URL">-->
+    <!-- </form>-->
+    </body>
+</html>
+
