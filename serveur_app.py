@@ -1,4 +1,4 @@
-Serveur :
+#Serveur :
 
 #! /usr/bin/python
 # -*- coding:utf-8 -*-
@@ -24,7 +24,7 @@ def fiche():
 if __name__ == '__main__':
     app.run(debug=True)
 
-A l'aide d'une template html :
+#A l'aide d'une template html :
 
 <!DOCTYPE html>
 <html>
