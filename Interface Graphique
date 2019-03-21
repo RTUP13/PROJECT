@@ -13,24 +13,18 @@
     <body>
 	<div id="bande">
 		<br>
-	    <center><h1><b>Accueil</b></h1></center>
-	    <center><p>Bonjour &agrave; tous !</p></center>
+	    <h3><b>Accueil</b></h3>
+	    <p>Bonjour &agrave; tous !</p>
 	    <br>
-	    <center><p>Bienvenue sur la page d'accueil de l'application de supervision My Gem !</p>
+	    <p>Bienvenue sur la page d'accueil de l'application de supervision My Gem !</p>
 	    <hr>
 		<br>
-		<p>Cette application permet &agrave; son utilisateur de surveiller l'&eacute;tat des machines de son 		r&eacute;seau.</p>
-		<p>Veuillez trouver ci-dessous la liste des machines supervisées par notre réseau.</p>
+		<p>Cette application permet &agrave; son utilisateur de surveiller l'&eacute;tat des machines de son r&eacute;seau.</p>
+		<p>Veuillez trouver ci-dessous la liste des machines supervisées par notre application.</p>
 		
-	</center>
-	    <p></p>
+	   
 	        <!--<img src="/home/student/905/11701053/Documents/TemplateHTML/exterieur-iutv.jpg" alt="exterieur-iutv.jpg"/>-->
-	    <center><img
-	                src="/home/student/905/11701053/Documents/TemplateHTML/mygem.png"
-	             alt=""
-	             height="150px"
-	             width="400px"
-	    /></center>
+		<div class="picture1">&nbsp;</div>
 		<br>
 		<br>
 	    <hr>
@@ -50,17 +44,76 @@
 	<ul id="menu-demo2">
 		<li><a href="#">Fiches de supervision des machines</a>
 			<ul>
-				<li><a href="#"><a href="machine2.html"> Machine num&eacute;ro 0. </a></a></li>
-				<li><a href="#"><a href="machine2.html"> Machine num&eacute;ro 1. </a></a></li>
-				<li><a href="#"><a href="machine2.html"> Machine num&eacute;ro 2. </a></a></li>
-				<li><a href="#"><a href="machine2.html"> Machine num&eacute;ro 3. </a></a></li>
-				<li><a href="#"><a href="machine2.html"> Machine num&eacute;ro 4. </a></a></li>
+				<li><a href="machine0.html"><p>Machine num&eacute;ro 0.</p></a></li>
+				<li><a href="machine1.html"><p>Machine num&eacute;ro 1.</p></a></li>
+				<li><a href="machine2.html"><p>Machine num&eacute;ro 2.</p></a></li>
+				<li><a href="machine3.html"><p>Machine num&eacute;ro 3.</p></a></li>
 			</ul>
 		</li>
 	</ul>
 	</div>
     </body>
 </html>
+
+
+<!--Problème avec PHP
+    <FORM>
+    <SELECT name="nom" size="1">
+    <OPTION>lundi
+    <OPTION>mardi
+    <OPTION>mercredi
+    <OPTION>jeudi
+    <OPTION>vendredi
+    </SELECT>
+    </FORM>
+-->
+
+
+<!--
+À	&#192;	&Agrave;
+Á	&#193;	&Aacute;
+Â	&#194;	&Acirc;
+Ã	&#195;	&Atilde;
+Ä	&#196;	&Auml;
+Å	&#197;	&Aring;
+Æ	&#198	&Aelig
+Ç	&#199;	&Ccedil;
+È	&#200;	&Egrave;
+É	&#201;	&Eacute;
+Ê	&#202;	&Ecirc;
+Ë	&#203;	&Euml;
+Ì	&#204;	&Igrave;
+Í	&#205;	&Iacute;
+Î	&#206;	&Icirc;
+Ï	&#207;	&Iuml;
+Ñ	&#209;	&Ntilde;
+Ò	&#210;	&Ograve;
+Ó	&#211;	&Oacute;
+Ô	&#212;	&Ocirc;
+Õ	&#213;	&Otilde;
+Ö	&#214;	&Ouml;
+Ù	&#217;	&Ugrave;
+Ú	&#218;	&Uacute;
+Û	&#219;	&Ucirc;
+Ü	&#220;	&Uuml;
+ß	&#223;	&szlig;
+à	&#224;	&agrave;
+á	&#225;	&aacute;
+â	&#226;	&acirc;
+ã	&#227;	&atilde;
+ä	&#228;	&auml;
+å	&#229;	&aring;
+æ	&#230;	&aelig;
+ç	&#231;	&ccedil;
+è	&#232;	&egrave;
+é	&#233;	&eacute;
+ê	&#234;	&ecirc;
+ë	&#235;	&euml;
+ì	&#236;	&igrave;
+í	&#237;	&iacute;
+î	&#238;	&icirc;
+ï	&#239;	&iuml;
+-->
 
 =====================================================================================================================
 #machine2.html : la fiche de supervision d'une machine.
@@ -76,11 +129,11 @@
     	<body>
 		<div id="bande">  
 		<br>  
-		<center><p><b> My Gem </b></p></center>
+		<p><b> My Gem </b></p>
 	    <hr>	
-	    <center><h1><i>Fiche de supervision de la machine 2</i></h1><br></center>
+	    <h1><i>Fiche de supervision de la machine 2</i></h1><br>
 	    <p></p>
-	    <center>
+	    
 	    <table>
 	            <thead>
 	                <tr>
@@ -91,30 +144,29 @@
 	                    <tr>
 	                            <td>Temp&eacute;rature du CPU en degr&eacute;s </td>
 	                            <td>x</td>
-	                </tr>
-	                    <td>M&eacute;moire libre en Mo </td>
-	                            <td>x</td>
-	                    </tr>
-	                    <td>Temps &eacute;coul&eacute; depuis le dernier arr&ecirc;t en secondes  </td>
+	                 </tr>
+	                	<td>M&eacute;moire libre en Mo </td>
+	                 	<td>x</td>
+	                 </tr>
+	                 	<td>Temps &eacute;coul&eacute; depuis le dernier arr&ecirc;t en secondes  </td>
 	                            <td>x</td>
 	                </tr>
 	               </tbody>
 	    </table>
 		    <br>
-	    </center>    
+	       
 	    <hr>
-	    <center><img
+	    <img
 	                src="/home/student/905/11701053/Documents/TemplateHTML/mygem.png"
 	             alt=""
-	             height="150px"
-	             width="400px"
-	    /></center>
+	             height:"150px"
+	             width:"400px"
+	    />
 	    <!-- <form method="get" action="URL">-->
 	    <!-- </form>-->
 		</div>    
 	</body>
 </html>
-
 
 
 
@@ -125,18 +177,28 @@ h1
 {
 	color:	#008000;
 }
-
-p
-{
-    color: #000080;
+p {text-align : center}
+h3{text-align : center;
+color: #0000FF
 }
+/*image logo mygem.png */
+
+div.picture1 {
+height:"150px";
+width:"400px";
+background-image:url(/media/11701053/GUILON_UP13/MyGem/TemplateHTML/mygem.png);
+   /*margin:0;*/
+   /*padding:0;*/
+	overflow:hidden
+}
+
 
 /* Bande latérales */
 html{
  height:100%;
 }
 body{
- background-color:#008000;
+ background-color:#d1e7c0;
  height:100%;
  margin:auto;
  padding:0;
@@ -276,12 +338,11 @@ color:#000;
 
 h1
 {
-	color:	#0000FF;
+	color:	#008000;
 }
-
-p
-{
-    color: #000080;
+p {text-align : center}
+h3{text-align : center;
+color: #0000FF
 }
 /* tableau */
 table,
@@ -304,7 +365,7 @@ html{
  height:100%;
 }
 body{
- background-color:#008000;
+ background-color:#FFFFFF;
  height:100%;
  margin:auto;
  padding:0;
@@ -315,6 +376,7 @@ body{
  background-color:#fff;
  margin:auto;
 }
+
 
 =====================================================================================================================
 =====================================================================================================================
