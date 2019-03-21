@@ -39,7 +39,7 @@ import json
 import sys
 
 D=dict()
-f=os.popen("""sensors | sed -n '/Core /p' | cut -d "+" -f2 | cut -d " " -f1""")
+f=os.popen("""sensors | sed -n '/Core /p' | cut -d" " -f1,2,10""")
 temperature=""
 for temp in f: 
 	temperature+='{},'.format(temp)
