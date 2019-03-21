@@ -1,29 +1,17 @@
-Génération dynamique du html :
+Serveur :
 
 #! /usr/bin/python
 # -*- coding:utf-8 -*-
 
-import json
+import json, requests
 
-utilisateur_dict = {"nom_utilisateur": "mygem"}
-temperature_dict = {"temperature": "30"}
-memoire_dict = {"memoire": "20"}
-temps_connexion_dict = {"temps_connexion": "5054"}
+reponse = requests.get('http://192.168.200.9:8080/equipements/Machine2')
+reponse = reponse.json()
 
-nom_utilisateur_json = json.dumps(utilisateur_dict)
-temperature_json = json.dumps(temperature_dict)
-memoire_json = json.dumps(memoire_dict)
-temps_connexion_json = json.dumps(temps_connexion_dict)
-
-utilisateur_dict = json.loads(nom_utilisateur_json)
-temperature_dict = json.loads(temperature_json)
-memoire_dict = json.loads(memoire_json)
-temps_connexion_dict = json.loads(temps_connexion_json)
-
-nom_utilisateur = utilisateur_dict["nom_utilisateur"]
-temperature = temperature_dict["temperature"]
-memoire = memoire_dict["memoire"]
-temps_connexion = temps_connexion_dict["temps_connexion"]
+nom_utilisateur = reponse['data']['nom_utilisateur']
+temperature = reponse['data']['temperature']
+memoire = reponse['data']['TailleDispo']
+temps_connexion = reponse['data']['TempsAllumage']
 
 from flask import Flask, render_template
 
@@ -31,7 +19,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def fiche():
-    return render_template('fiche.html', nom_utilisateur=nom_utilisateur, temperature=temperature, memoire=memoire, temps_connexion=temps_connexion)
+    return render_template('machine2.html', nom_utilisateur=nom_utilisateur, temperature=temperature, memoire=memoire, temps_connexion=temps_connexion)
 
 if __name__ == '__main__':
     app.run(debug=True)
@@ -42,7 +30,7 @@ A l'aide d'une template html :
 <html>
     <head>
         <meta charset="utf-8" />
-    <link rel="stylesheet" href="machine2.css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/machine2.css')}}" />
         <title>My Gem : Fiche de supervision</title>
     </head>
 
