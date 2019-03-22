@@ -77,7 +77,7 @@ Si l'équipement existe déjà, ses informations seront écrasées
 
 ## Vérifie les détails de l'équipement
 
-`GET /equipements/<identifiant>`
+`GET /equipements/<identifiant>/details`
 
 **Réponse:**
 
@@ -103,25 +103,40 @@ Si l'équipement existe déjà, ses informations seront écrasées
 - `404 Not Found`  L'équipement n'existe pas
 - `204 OK` Pas de contenu (Contenu supprimer)
 
+# Protocole (Veuillez bien prendre en considération de ce format lorsque vous codez)
+
 ## Remonté des informations entre le client et le serveur
+
+**Définition**
+
+`GET /equipements/<identifiant>`
+
+**Réponses**
+
 Les réponses seront de la forme suivante
 
 ```JSON
 {
   "identfiant" : "Machine 2",
+  "data" : 
+  {
   "nom_utilisateur": "Mahine",
   "Température du CPU en dégrés" : "41°C",
   "Temps écoulé depuis le dernier arrêt en secondes" : "16:55",
   "Mémoire libre en Go" : " 4012 Go",
+  }
 }
 ```  
 ### Donner remplie dans la base de données.
 ```JSON
 {
-  "identifiant": "Machine 2",
+  "identfiant" : "Machine 2",
+  "data" : 
+  {
   "nom_utilisateur": "Mahine",
-  "température": "21°C",
-  "temps_connexion": "16:55",
-  "memoire" : "4012 Go",
+  "Température du CPU en dégrés" : "41°C",
+  "Temps écoulé depuis le dernier arrêt en secondes" : "16:55",
+  "Mémoire libre en Go" : " 4012 Go",
+  }
 }
 ```
