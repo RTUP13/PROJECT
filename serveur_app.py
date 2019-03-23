@@ -2,6 +2,7 @@
 
 #! /usr/bin/python
 # -*- coding:utf-8 -*-
+# flask run -h 192.168.43.17
 
 import json, requests
 
