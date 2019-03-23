@@ -1,4 +1,5 @@
 #!/bin/usr/python
+# coding : utf-8
 
 import os
 import json
@@ -18,18 +19,18 @@ D["nom_utilisateur"]=f.readline().strip()
 f=os.popen('uptime | cut -d"," -f1-2 | cut -d"p" -f2')
 D["TempsAllumage"]=f.readline().strip()
 
-# ================================================================================================================================
-                                                    #Mémoire restante
+#================================================================================================================================
+                                                    #Memoire restante
 
 
-f=os.popen('free -m | head -n2 | tail -n1 | cut -d" " -f20')
+f=os.popen("cat /proc/meminfo | sed -n '/MemFree/p' | awk '{print $2,$3}'")
 D["TailleDispo"]=f.readline().strip()
 
 
 # =================================================================================================================================
-                                                  #Température CPU
+                                                  #Temperature CPU
 
-f=os.popen("""sensors | sed -n '/Core /p' | cut -d" " -f1,2,10""")
+f=os.popen("""sensors | sed -n '/Core /p' | cut -d" " -f1,2,10-11""")
 temperature=""
 for temp in f:
 	temperature+='{},'.format(temp)
