@@ -1,0 +1,80 @@
+host=`sudo ifconfig | grep 192 | cut -d"t" -f2 | cut -d"n" -f1`
+echo -e "client2\n" | sudo -S apt-get install -y python3-venv
+python3 -m venv venv
+source venv/bin/activate
+pip install flask requests
+echo """#!/usr/bin/python
+# -- coding: utf-8 --
+#import markdown
+import shelve
+import os,subprocess,json
+
+# Importation du framework
+from flask import Flask,g,request,jsonify
+#from flask_restful import Resource, Api, reqparse
+app = Flask(__name__)
+
+# Création de l'API
+#api = Api(app)
+
+identifiants = {'id_name' : 'Machine2'}
+
+@app.route('/equipements/<string:id_name>', methods=['GET'])
+def getone(id_name):
+    if not (id_name == identifiants['id_name']):
+        return jsonify({'message':'Equipement introuvable: id_name', 'data': {}}),404
+    information = subprocess.check_output(['python', '/home/clien2/sondes.py'])
+    inform = information.decode("utf-8")
+    inform = json.loads(inform)
+    return jsonify({'identifiant': id_name, 'data' : inform})
+
+if __name__ == '__main__':
+	app.run(debug=True, host='$host', port=8080) #run app on port 8080 in debug mode""" > serveur.py
+
+echo """#!/bin/usr/python
+
+import os
+import json
+import sys
+
+D=dict()
+#=================================================================================================================================
+                                                    #Nom d'utilisateur
+
+f=os.popen('whoami')
+D["nom_utilisateur"]=f.readline().strip()
+
+# ================================================================================================================================
+                                                    #Temps de connexion
+
+
+f=os.popen('uptime | cut -d"," -f1-2 | cut -d"p" -f2')
+D["TempsAllumage"]=f.readline().strip()
+
+# ================================================================================================================================
+                                                    #Mémoire restante
+
+
+f=os.popen('free -m | head -n2 | tail -n1 | cut -d" " -f20')
+D["TailleDispo"]=f.readline().strip()
+
+
+# =================================================================================================================================
+                                                  #Température CPU
+
+f=os.popen("""sensors | sed -n '/Core /p' | cut -d" " -f1,2,10""")
+temperature=""
+for temp in f:
+	temperature+='{},'.format(temp)
+
+D["temperature"]=temperature
+
+
+# ================================================================================================================================
+                                                    # transformation du format dictionnaire au format json
+A=json.dumps(D)
+print(A)""" > sondes.py
+
+chmod +x serveur.py sondes.py
+export FLASK_APP=serveur.py
+flask run
