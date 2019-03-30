@@ -1,0 +1,42 @@
+#machine2.css
+
+h1
+{
+	color:	#008000;
+}
+p {text-align : center}
+h3{text-align : center;
+color: #0000FF
+}
+/* tableau */
+table,
+td {
+    border: 1px solid #333;
+}
+
+thead,
+tfoot {
+    background-color: #333;
+    color: #fff;
+}
+table {
+ border-width:1px;
+ border-style:dotted;
+ border-color:black;
+ }
+/* Bande latérales */
+html{
+ height:100%;
+}
+body{
+ background-color:#FFFFFF;
+ height:100%;
+ margin:auto;
+ padding:0;
+}
+#bande{
+ width:1024px;
+ min-height:100%;
+ background-color:#fff;
+ margin:auto;
+}

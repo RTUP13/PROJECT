@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/page_accueil.css')}}" />
+        <title>My Gem : Accueil</title>
+    </head>
+
+    <body>
+	<div id="bande">
+		<br>
+	    <h3><b>Accueil</b></h3>
+	    <p>Bonjour &agrave; tous !</p>
+	    <br>
+	    <p>Bienvenue sur la page d'accueil de l'application de supervision My Gem !</p>
+	    <hr>
+		<br>
+		<p>Cette application permet &agrave; son utilisateur de surveiller l'&eacute;tat des machines de son r&eacute;seau.</p>
+		<p>Veuillez trouver ci-dessous la liste des machines supervisées par notre application.</p>
+
+
+	        <!--<img src="/home/student/905/11701053/Documents/TemplateHTML/exterieur-iutv.jpg" alt="exterieur-iutv.jpg"/>-->
+		<div class="picture1">&nbsp;</div>
+		<br>
+		<br>
+	    <hr>
+		<br>
+	    <!-- <center>
+	    <ul>
+	          <li>Pour acc&eacute;der &agrave; la fiche de la machine num&eacute;ro 0, <a href="machine.html">cliquez ici</a>.</li>
+	        <li>Pour acc&eacute;der &agrave; la fiche de la machine num&eacute;ro 1, <a href="machine1.html">cliquez ici</a>.</li>
+	        <li>Pour acc&eacute;der &agrave; la fiche de la machine num&eacute;ro 2, <a href="machine2.html">cliquez ici</a>.</li>
+	    </ul>
+	    </center> -->
+		<div id="ustensiles">
+		<div></div>
+		</div>
+
+	<ul id="menu-demo2">
+		<li><a href="#">Fiches de supervision des machines</a>
+			<ul>
+				{% for machine in list_dyna %}
+          <li><a href="machine0.html"><p>{{ machine }}</p></a></li>
+        {% endfor %}
+			</ul>
+		</li>
+	</ul>
+	</div>
+    </body>
+</html>

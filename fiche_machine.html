@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/fiche_machine.css')}}" />
+        <title>My Gem : Fiche de supervision</title>
+    </head>
+
+    <body>
+    <center><p><b> My Gem </b></p></center>
+    <hr>
+    <center><p><i>Fiche de supervision de la machine 1</i></p><br></center>
+    <p></p>
+    <center>
+    <table>
+            <thead>
+                <tr>
+                    <th colspan="2">Utilisateur connecté  : {{nom_utilisateur}} </th>
+                </tr>
+            </thead>
+                <tbody>
+                    <tr>
+                            <td>Temp&eacute;rature CPU </td>
+                            <td>{{temperature}}</td>
+                </tr>
+                    <td>M&eacute;moire libre </td>
+                            <td>{{memoire}} Mo</td>
+                    </tr>
+                    <td>Temps &eacute;coul&eacute; depuis le dernier arr&ecirc;t </td>
+                            <td>{{temps_connexion}}</td>
+                </tr>
+               </tbody>
+    </table>
+    <br>
+    </center>
+    <hr>
+    <center><img
+                src="/home/student/905/11701053/Documents/TemplateHTML/exterieur-iutv.jpg"
+             alt=""
+             height="500px"
+             width="800px"
+    /></center>
+    <!-- <form method="get" action="URL">-->
+    <!-- </form>-->
+    </body>
+</html>
