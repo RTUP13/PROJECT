@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <h5>L'équipement "{{ result['nom'] }}" a bien été enregistré</h5>
+  <h5>Récapitulatif du nouvel équipement</h5>
+  <table>
+    {% for key, value in result.items() %}
+    <tr>
+      <td><b> {{ key }} :</b></td>
+      <td> {{ value }} </td>
+    </tr>
+    {% endfor %}
+  </table>
+</body>
+</html>

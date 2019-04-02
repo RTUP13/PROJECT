@@ -3,7 +3,43 @@
     <head>
         <meta charset="utf-8" />
     <link rel="stylesheet" href="{{ url_for('static', filename='css/page_accueil.css')}}" />
-        <title>My Gem : Accueil</title>
+    <style>
+.dropbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #ddd;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
+</style>
+    <title>My Gem : Accueil</title>
     </head>
 
     <body>
@@ -17,34 +53,26 @@
 		<br>
 		<p>Cette application permet &agrave; son utilisateur de surveiller l'&eacute;tat des machines de son r&eacute;seau.</p>
 		<p>Veuillez trouver ci-dessous la liste des machines supervisées par notre application.</p>
-
-
 	        <!--<img src="/home/student/905/11701053/Documents/TemplateHTML/exterieur-iutv.jpg" alt="exterieur-iutv.jpg"/>-->
 		<div class="picture1">&nbsp;</div>
 		<br>
 		<br>
 	    <hr>
 		<br>
-	    <!-- <center>
-	    <ul>
-	          <li>Pour acc&eacute;der &agrave; la fiche de la machine num&eacute;ro 0, <a href="machine.html">cliquez ici</a>.</li>
-	        <li>Pour acc&eacute;der &agrave; la fiche de la machine num&eacute;ro 1, <a href="machine1.html">cliquez ici</a>.</li>
-	        <li>Pour acc&eacute;der &agrave; la fiche de la machine num&eacute;ro 2, <a href="machine2.html">cliquez ici</a>.</li>
-	    </ul>
-	    </center> -->
-		<div id="ustensiles">
-		<div></div>
-		</div>
-
-	<ul id="menu-demo2">
-		<li><a href="#">Fiches de supervision des machines</a>
-			<ul>
-				{% for machine in list_dyna %}
-          <li><a href="machine0.html"><p>{{ machine }}</p></a></li>
-        {% endfor %}
-			</ul>
-		</li>
-	</ul>
-	</div>
+      <div class="dropdown">
+        <button class="dropbtn">Fiches de supervision des machines</button>
+        <div class="dropdown-content">
+          {% for identifiant in list_dyna %}
+          <a href="{{ url_for('ajout_equipements', identifiant=identifiant ) }}">{{ identifiant }}</a></li>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="dropbtn">Ajout et suppression</button>
+        <div class="dropdown-content">
+          <a href="{{ url_for('ajout_equipements') }}">Ajouter un équipement</a></li>
+          <button onclick="window.location.href ='{{ url_for('ajout_equipements') }}';">Supprimer un équipement</button>
+        </div>
+      </div>
     </body>
 </html>

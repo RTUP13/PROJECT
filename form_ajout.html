@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h2>The Button Element</h2>
+<!-- <button type="button" onclick="alert('Hello world!')">Click Me!</button> -->
+<form action="{{ url_for('ajout_equipements') }}" method="POST">
+  <table>
+	<tr>
+	<td>identifiant</td>
+  <td><input type="text" name="identifiant"></td>
+  </tr>
+  <tr><td>nom</td><td><input type="text" name="nom"></td></tr>
+  <tr><td>type</td><td><input type="text" name="type"></td></tr>
+
+  <tr><td>ip_controleur</td><td><input type="text" name="ip_controleur"></td></tr>
+  <tr><td><input type="submit" value="Submit"></td></tr>
+  </table>
+</form>
+</body>
+</html>
