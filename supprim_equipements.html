@@ -4,16 +4,17 @@
   <h5><p>Liste des équipements enregistrés</p>
   <p> Veuillez choisir un équipement à supprimer</p></h5>
   <table>
-    {% for equipement in {{ equipements }} %}
+    {% for equipement in equipements  %}
     <tr>
       <td>
       <p> {{ equipement }} </p>
     </td>
     <td>
-      <button type="button" onclick="window.location.href='{{ url_for('supprim_equipements') }}';">Supprimer</button>
+      <button type="button" onclick="window.location.href='{{ url_for('supprim_equipements', identifiant=equipement) }}';">Supprimer</button>
     <td>
     </tr>
     {% endfor %}
   </table>
+  <p> {{ reponse }}  </p>
 </body>
 </html>

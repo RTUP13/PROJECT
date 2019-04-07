@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <h5><p>Liste des équipements enregistrés et leurs détails</p>
+    {% for equipement, details in details.items() %}
+    <ul>
+    <li>
+    <p> Détails de la machine {{ equipement }}
+    </li>
+
+      <p> identifiant : {{ details.identifiant }}
+      <p> nom : {{ details.nom }}
+      <p> type: {{ details.type }}
+      <p> ip_controleur : {{ details.ip }}
+        <br>
+    </ul>
+    {% endfor %}
+  </br>
+  <p> {{ reponse }}  </p>
+</body>
+</html>
