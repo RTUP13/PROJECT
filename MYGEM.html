@@ -3,36 +3,6 @@
     <head>
         <meta charset="utf-8" />
     <link rel="stylesheet" href="{{ url_for('static', filename='css/page_accueil.css')}}" />
-    <style>
-.dropbtn {
-  background-color: #4CAF50;
-  color: white;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
-}
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f1f1f1;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
-.dropdown-content a:hover {background-color: #ddd;}
-.dropdown:hover .dropdown-content {display: block;}
-.dropdown:hover .dropbtn {background-color: #3e8e41;}
-</style>
     <title>My Gem : Accueil</title>
     </head>
 
@@ -80,11 +50,11 @@
         <div id="form" style="margin:100px;display:none;">
           <form action="{{ url_for('ajout_equipements') }}" method="POST" class="form-container" >
             <table>
-          	<tr><td>identifiant</td><td><input type="text" name="identifiant" placeholder="identifiant" required></td></tr>
-            <tr><td>nom</td><td><input type="text" name="nom" placeholder="Nom" required></td></tr>
-            <tr><td>type</td><td><input type="text" name="type" placeholder="Type de machine" required></td></tr>
-            <tr><td>ip_controleur</td><td><input type="text" name="ip_controleur" placeholder="adresse IP" required ></td></tr>
-            <tr><td><button type="submit" class="btn">Enregistrer</button></td><td><button type="button" class="btn cancel" onclick="closeForm()">Annuler</button></td></tr>
+          	<tr><td><b>Identifiant*</b></td><td><input type="text" name="identifiant" placeholder="identifiant" required></td></tr>
+            <tr><td><b>Nom</b></td><td><input type="text" name="nom" placeholder="Nom"></td></tr>
+            <tr><td><b>Type*</b></td><td><input type="text" name="type" placeholder="Type de machine" required></td></tr>
+            <tr><td><b>Adresse IP*</b></td><td><input type="text" name="ip_controleur" placeholder="adresse IP" required></td></tr>
+            <tr><td><button type="submit" class="btn">Enregistrer</button></td><td><button type="button" class="btn cancel" onclick="closeForm()">   Annuler</button></td></tr>
             </table>
           </form>
       </div>
