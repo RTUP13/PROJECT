@@ -73,15 +73,18 @@
             x.style.display = "none";
           }
         }
+        function closeForm() {
+          document.getElementById("form").style.display = "none";
+        }
         </script>
         <div id="form" style="margin:100px;display:none;">
           <form action="{{ url_for('ajout_equipements') }}" method="POST" class="form-container" >
             <table>
-          	<tr><td>identifiant</td><td><input type="text" name="identifiant"></td></tr>
-            <tr><td>nom</td><td><input type="text" name="nom"></td></tr>
-            <tr><td>type</td><td><input type="text" name="type"></td></tr>
-            <tr><td>ip_controleur</td><td><input type="text" name="ip_controleur"></td></tr>
-            <tr><td><button type="submit">Enregistrer</button></td><td><button type="button" class="btn cancel" onclick="closeForm()">Annuler</button></td></tr>
+          	<tr><td>identifiant</td><td><input type="text" name="identifiant" placeholder="identifiant" required></td></tr>
+            <tr><td>nom</td><td><input type="text" name="nom" placeholder="Nom" required></td></tr>
+            <tr><td>type</td><td><input type="text" name="type" placeholder="Type de machine" required></td></tr>
+            <tr><td>ip_controleur</td><td><input type="text" name="ip_controleur" placeholder="adresse IP" required ></td></tr>
+            <tr><td><button type="submit" class="btn">Enregistrer</button></td><td><button type="button" class="btn cancel" onclick="closeForm()">Annuler</button></td></tr>
             </table>
           </form>
       </div>
