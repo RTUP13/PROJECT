@@ -4,7 +4,7 @@ import markdown
 import shelve
 import os,subprocess,json,requests
 # Importation du framework
-from flask import Flask,g,request,jsonify, render_template
+from flask import Flask,g,request,jsonify, render_template,redirect, url_for, session, escape
 from flask_restful import Resource, Api, reqparse
 #Création d'une instance de Flasks
 #Serveur :
@@ -12,7 +12,7 @@ from flask_restful import Resource, Api, reqparse
 
 # Création d'une instance de Flask
 app = Flask(__name__)
-
+app.secret_key = os.urandom(12)
 
 def get_db():
     db = getattr(g, '_database', None)
@@ -26,26 +26,35 @@ def teardown_db(exception):
     if db is not None:
         db.close()
 
-@app.route('/')
-def index():
-    """" La documentation du protocole """
-    # Ouverture du fichier README.md
-    with open(os.path.dirname(app.root_path) + '/serveur/README.md','r') as markdown_file:
-        # Lecture du contenu du readme
-        content = markdown_file.read()
+@app.route('/', methods=['GET', 'POST'])
+def login():
+    error = None
+    if request.method == 'POST':
+        if request.form['username'] != 'admin' or request.form['password'] != 'admin':
+            error = 'Entrée(s) invalide(s)'
 
-        # Conversion en HTML
-        return markdown.markdown(content)
+        else:
+            session['username']=request.form['username']
+            return redirect(url_for('mygem'))
+    return render_template('login.html', error=error)
 
-@app.route('/<string:page_name>/')
-def render_static(page_name):
+@app.route('/logout')
+def logout():
+    # remove the username from the session if it's there
+    session.pop('username', None)
+    return redirect(url_for('login'))
+
+@app.route('/MYGEM')
+def mygem():
     """ La page d'acceuil MYGEM """
+    if 'username' in session:
+      username = session['username']
     shelf = get_db()
     keys = list(shelf.keys())
     noms = []
     for key in keys:
         noms.append(shelf[key]['identifiant'])
-    return render_template( '{page}.html'.format(page=page_name),list_dyna=noms)
+    return render_template( 'MYGEM.html', list_dyna=noms, username=username)
 
 
 @app.route('/MYGEM/equipements/mod', methods=['GET', 'POST', 'DELETE']) #les methodes(requetes) accepter sont GET and POST
