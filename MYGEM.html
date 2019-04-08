@@ -2,7 +2,6 @@
 <html>
     <head>
         <meta charset="utf-8" />
-	<meta http-equiv="refresh" content="10"> 
     <link rel="stylesheet" href="{{ url_for('static', filename='css/page_accueil.css')}}" />
     <title>My Gem : Accueil</title>
     </head>
@@ -14,10 +13,11 @@
 	    <p>Bonjour &agrave; tous !</p>
 	    <br>
 	    <p>Bienvenue sur la page d'accueil de l'application de supervision My Gem !</p>
+      <p> Vous êtes loger en tant que <b>{{ username }}</b></p>
 	    <hr>
 		<br>
-		<p>Cette application permet &agrave; son utilisateur de surveiller l'&eacute;tat des machines de son r&eacute;seau.</p>
-		<p>Veuillez trouver ci-dessous la liste des machines supervisées par notre application.</p>
+		<!-- <p>Cette application permet &agrave; son utilisateur de surveiller l'&eacute;tat des machines de son r&eacute;seau.</p>
+		<p>Veuillez trouver ci-dessous la liste des machines supervisées par notre application.</p> -->
 	        <!--<img src="/home/student/905/11701053/Documents/TemplateHTML/exterieur-iutv.jpg" alt="exterieur-iutv.jpg"/>-->
 		<div class="picture1">&nbsp;</div>
 		<br>
@@ -32,9 +32,10 @@
           {% endfor %}
         </div>
       </div>
-        <button class="dropbtn" onclick="Affiche_form()">Ajouter un équipement</button>
-        <button class="dropbtn" onclick="window.location.href='{{ url_for('ajout_equipements') }}';" method="GET">Supprimer un équipement</button>
-        <button class="dropbtn" onclick="window.location.href='{{ url_for('listequipement') }}';">Détails des équipements</button>
+        <button class="dropbtn" value="Reload Page" onclick="Affiche_form()">Ajouter un équipement</button>
+        <button class="dropbtn" value="Reload Page" onclick="window.location.href='{{ url_for('ajout_equipements') }}';" method="GET">Supprimer un équipement</button>
+        <button class="dropbtn" value="Reload Page" onclick="window.location.href='{{ url_for('listequipement') }}';">Détails des équipements</button>
+        <button class="btn cancel" value="Reload Page" onclick="window.location.href='{{ url_for('logout') }}';">Déconnexion</button>
         <script>
         function Affiche_form() {
           var x = document.getElementById("form");
@@ -47,15 +48,19 @@
         function closeForm() {
           document.getElementById("form").style.display = "none";
         }
+        function timedRefresh(timeoutPeriod) {
+	         setTimeout("location.reload(true);",timeoutPeriod);
+         }
         </script>
-        <div id="form" style="margin:100px;display:none;">
+        <div id="form" style="margin:100px;display:none;" class="form-popup">
           <form action="{{ url_for('ajout_equipements') }}" method="POST" class="form-container" >
             <table>
+            <h3>Ajouter un équipement</h3>
           	<tr><td><b>Identifiant*</b></td><td><input type="text" name="identifiant" placeholder="identifiant" required></td></tr>
             <tr><td><b>Nom</b></td><td><input type="text" name="nom" placeholder="Nom"></td></tr>
             <tr><td><b>Type*</b></td><td><input type="text" name="type" placeholder="Type de machine" required></td></tr>
             <tr><td><b>Adresse IP*</b></td><td><input type="text" name="ip_controleur" placeholder="adresse IP" required></td></tr>
-            <tr><td><button type="submit" class="btn">Enregistrer</button></td><td><button type="button" class="btn cancel" onclick="closeForm()">   Annuler</button></td></tr>
+            <tr><td><button type="submit" onclick="javascript:timedRefresh(0)" class="btn">Enregistrer</button></td><td><button type="button" class="btn cancel" onclick="closeForm()">   Annuler</button></td></tr>
             </table>
           </form>
       </div>
