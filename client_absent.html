@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>My Gem : Client Injoignable</title>
+</head>
+<body>
+  <h3><p>Il se peut que le client que vous essayé de joindre n'existe pas</p>
+  <p> Veuillez vérifier que les informations du client {{ identifiant }} sont corrrecte</p></h3>
+  <li>
+  <p> Détails de la machine {{ identifiant }} </p>
+  </li>
+
+    <p> identifiant : {{ identifiant }} </p>
+    <p> nom : {{ nom }} </p>
+    <p> type: {{ type }} </p>
+    <p> ip_controleur : {{ ip }} </p>
+<button type="button" onclick="window.location.href='{{ url_for('mygem') }}';">Retour à l'acceuil</button>
+</body>
+</html>

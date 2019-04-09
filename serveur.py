@@ -47,6 +47,11 @@ def logout():
 @app.route('/MYGEM')
 def mygem():
     """ La page d'acceuil MYGEM """
+    try:
+        redirect(url_for('mygem'))
+    except UnboundLocalError:
+        redirect(url_for('login'))
+
     if 'username' in session:
       username = session['username']
     shelf = get_db()
@@ -95,7 +100,7 @@ def supprim_equipements(identifiant):
     if not (identifiant in shelf):
         return """L'équipement {} est introuvable """.format(identifiant),404
     del shelf[identifiant]
-    return render_template('supprim_equipements.html',reponse=("""L'équipement {} à bien été supprimer""").format(identifiant))
+    return render_template('supprim_equipements.html',reponse=("Équipement {} à bien été supprimer").format(identifiant))
 
 # @app.route('/MYGEM/formajout/')
 # def form_ajout():
@@ -116,20 +121,50 @@ class ListEquipements(Resource):
             devices.append(shelf[key])
         return {'message':'Réussie', 'data': devices }, 200
 
+@app.errorhandler(KeyError)
+def handle_global_error(e):
+    shelf = get_db()
+    keys = list(shelf.keys())
+    for key in keys:
+        identifiant=shelf[key]['identifiant']
+        nom=shelf[key]['nom']
+        type= shelf[key]['type']
+        ip= shelf[key]['ip_controleur']
+    return render_template('client_absent.html', identifiant=identifiant, nom=nom, type=type, ip=ip)
+
 
 @app.route('/MYGEM/equipements/<string:identifiant>', methods=['GET']) # Une route vers le résultat des sondes, les méthodes acceptées sont GET
 # définition de equipement prend en paramètre l'identifiant renvoyé par le lien dans la liste déroulante
 def equipement(identifiant):
     shelf = get_db()
-    ip_controleur=shelf[identifiant]['ip_controleur']
-    reponse = requests.get('http://{}:8080/equipements/{}'.format(ip_controleur,identifiant))
+    try :
+        ip_controleur=shelf[identifiant]['ip_controleur']
+        reponse = requests.get('http://{}:8080/equipements/{}'.format(ip_controleur,identifiant))
+    except requests.exceptions.ConnectionError :
+        keys = list(shelf.keys())
+        details = dict()
+        nom=shelf[identifiant]['nom']
+        type= shelf[identifiant]['type']
+        ip= shelf[identifiant]['ip_controleur']
+        return render_template('client_absent.html', identifiant=identifiant, nom=nom, type=type, ip=ip)
+    # try:
+    #
+    #
+    # except KeyError:
+    #     keys = list(shelf.keys())
+    #     details = dict()
+    #     nom=shelf[identifiant]['nom']
+    #     type= shelf[identifiant]['type']
+    #     ip= shelf[identifiant]['ip_controleur']
+    #     return render_template('client_absent.html', identifiant=identifiant, nom=nom, type=type, ip=ip)
+
     reponse = reponse.json()
     nom = shelf[identifiant]['nom']
     nom_utilisateur = reponse['data']['nom_utilisateur']
     temperature = reponse['data']['temperature']
     memoire = reponse['data']['TailleDispo']
     temps_connexion = reponse['data']['TempsAllumage']
-    return render_template('fiche_machine.html', nom_utilisateur=nom_utilisateur, temperature=temperature, memoire=memoire, temps_connexion=temps_connexion, nom=nom)
+    return render_template('fiche_machine.html', nom_utilisateur=nom_utilisateur, temperature=temperature, memoire=memoire, temps_connexion=temps_connexion, nom=nom, identifiant=identifiant)
 
 @app.route('/MYGEM/equipements/') # Une route vers le détails de tout les équipements enregistré,
 def listequipement():

@@ -3,17 +3,17 @@
 <title>My Gem : Détails</title>
 </head>
 <body>
-  <h5><p>Liste des équipements enregistrés et leurs détails</p>
+  <h3><p>Liste des équipements enregistrés et leurs détails</p></h3>
     {% for equipement, details in details.items() %}
     <ul>
     <li>
-    <p> Détails de la machine {{ equipement }}
+    <p> Détails de la machine {{ equipement }} </p>
     </li>
 
-      <p> identifiant : {{ details.identifiant }}
-      <p> nom : {{ details.nom }}
-      <p> type: {{ details.type }}
-      <p> ip_controleur : {{ details.ip }}
+      <p> identifiant : {{ details.identifiant }} </p>
+      <p> nom : {{ details.nom }} </p>
+      <p> type: {{ details.type }} </p>
+      <p> ip_controleur : {{ details.ip }} </p>
         <br>
     </ul>
     {% endfor %}

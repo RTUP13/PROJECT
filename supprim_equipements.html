@@ -5,13 +5,13 @@
     <title>My Gem : Suppression</title>
 </head>
 <body>
-  <h5><p>Liste des équipements enregistrés</p>
-  <p> Veuillez choisir un équipement à supprimer</p></h5>
+  <h3><p>Liste des équipements enregistrés</p>
+  <p> Veuillez choisir un équipement à supprimer</p></h3>
   <script>
   function timedRefresh() {
         var timer = setTimeout(function() {
             window.location.href='{{ url_for('ajout_equipements') }}'
-        }, 2000);
+        }, 0);
     }
   function Alert(message){
     alert(message);
