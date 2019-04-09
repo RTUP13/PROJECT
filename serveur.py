@@ -139,7 +139,7 @@ def equipement(identifiant):
     shelf = get_db()
     try :
         ip_controleur=shelf[identifiant]['ip_controleur']
-        reponse = requests.get('http://{}:8080/equipements/{}'.format(ip_controleur,identifiant))
+        reponse = requests.get('http://{}:10000/equipements/{}'.format(ip_controleur,identifiant))
     except requests.exceptions.ConnectionError :
         keys = list(shelf.keys())
         details = dict()
