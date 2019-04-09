@@ -5,8 +5,12 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/fiche_machine.css')}}" />
         <title>My Gem : Fiche de supervision</title>
     </head>
-
     <body>
+    <script>
+    var timer = setTimeout(function() {
+        window.location.reload(true)
+    }, 90000);
+   </script>
     <center><p><b> My Gem </b></p></center>
     <hr>
     <center><p><i>Fiche de supervision de la machine {{ nom }}</i></p><br></center>

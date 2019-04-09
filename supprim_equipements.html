@@ -13,6 +13,9 @@
             window.location.href='{{ url_for('ajout_equipements') }}'
         }, 2000);
     }
+  function Alert(message){
+    alert(message);
+  }
     </script>
   <table>
     {% for equipement in equipements  %}
@@ -30,7 +33,7 @@
   <p>{{ reponse }}</p>
   <button type="button" onclick="window.location.href='{{ url_for('mygem') }}';">Retour à l'acceuil</button>
   {% else %}
-  <p>{{ reponse }}</p>
+  <script>Alert('{{ reponse }}')</script>
   <script>timedRefresh();</script>
   {% endif %}
 </body>
