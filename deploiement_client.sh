@@ -1,4 +1,4 @@
-python deploiement.py
+python deploiement_client.py
 
 host=`sudo ifconfig | grep 192 | cut -d"t" -f2 | cut -d"n" -f1`
 
