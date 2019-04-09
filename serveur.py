@@ -83,7 +83,7 @@ def ajout_equipements():
 
         shelf = get_db()
         shelf[args['identifiant']] = args
-        return render_template('ajout_equipement.html', result=args)
+        return render_template('ajout_equipements.html', result=args)
     if request.method == 'GET':
         shelf = get_db()
         keys = list(shelf.keys())
