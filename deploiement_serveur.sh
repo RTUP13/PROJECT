@@ -6,7 +6,7 @@ mkdir -p static/js
 
 mv MYGEM.css fiche_machine.css static/css/
 
-mv MYGEM.html ajout_equipements.html detail_equipement.html fiche_machine.html forme_ajout.html login.html logo.png supprim_equipements.html templates/
+mv MYGEM.html ajout_equipements.html detail_equipement.html fiche_machine.html forme_ajout.html login.html logo.png client_absent.html supprim_equipements.html templates/
 
 mv fonction.js static/js
 python deploiement_client.py
