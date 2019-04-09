@@ -1,0 +1,25 @@
+cd PROJECT
+
+mkdir templates
+mkdir -p static/css
+
+mv MYGEM.css fiche_machine.css static/css/
+
+mv MYGEM.html ajout_equipement.html detail_equipement.html fiche_machine.html forme_ajout.html login.html logo.png supprim_equipement.html templates/
+
+python deploiement_client.py
+
+host=`sudo ifconfig | grep 192 | cut -d"t" -f2 | cut -d"n" -f1`
+
+echo "Entrez votre mot de passe système"
+read -s password
+
+echo -e "$password\n" | sudo -S apt-get install -y python3-venv
+python3 -m venv venv
+source venv/bin/activate
+
+pip install flask requests
+
+chmod +x -R ~/PROJECT
+export FLASK_APP=serveur.py
+flask run -h $host -p 10000
