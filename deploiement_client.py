@@ -13,6 +13,9 @@ address, port = s.getsockname()
 identifiant = str()
 identifiant = input("Entrez un identifiant : ")
 
+chemin = str()
+chemin = os.getcwd()
+
 client = str()
 client = """#!/usr/bin/python
 # -- coding: utf-8 --
@@ -26,7 +29,7 @@ identifiants = {'id_name' : '"""+str(identifiant)+"""'}
 def getone(id_name):
     if not (id_name == identifiants['id_name']):
         return jsonify({'message':'Equipement introuvable: id_name', 'data': {}}),404
-    information = subprocess.check_output(['python', '$chemin/sondes.py'])
+    information = subprocess.check_output(['python', '"""+chemin+"""/sondes.py'])
     inform = information.decode("utf-8")
     inform = json.loads(inform)
     return jsonify({'identifiant': id_name, 'data' : inform})
