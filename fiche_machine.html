@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+	<META HTTP-EQUIV="Refresh" CONTENT="30">
+    <link rel="stylesheet" href="/home/mahine/html/fiche_machine.css" />
+        <title>My Gem : Fiche de supervision</title>
+    </head>
+
+    <body>
+	<div id="bande">
+		<br>
+	    <h1><p><b> My Gem </b></p></h1>
+	    <hr>
+	    <p><i>Fiche de supervision de la machine {{ nom }}</i></p><br>
+	<center>    
+	<table>
+	            <thead>
+	                <tr>
+	                    <th colspan="2">Utilisateur connecté  : {{nom_utilisateur}} </th>
+	                </tr>
+	            </thead>
+	                <tbody>
+	                    <tr>
+	                            <td>Temp&eacute;rature CPU </td>
+	                            <td>{{temperature}}</td>
+	                </tr>
+	                    <td>M&eacute;moire libre </td>
+	                            <td>{{memoire}} Mo</td>
+	                    </tr>
+	                    <td>Temps &eacute;coul&eacute; depuis le dernier arr&ecirc;t </td>
+	                            <td>{{temps_connexion}}</td>
+	                </tr>
+	               </tbody>
+	    </table>
+	    <br>
+	    <button type="button" onclick="window.location.href='{{ url_for('mygem') }}';">Retour à l'acceuil</button>
+	    </center>
+	    <hr>
+		<div class="picture5">&nbsp;</div>
+	    <!-- <form method="get" action="URL">-->
+	    <!-- </form>-->
+	</div>
+    </body>
+</html>

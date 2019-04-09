@@ -1,0 +1,66 @@
+#machine2.css
+
+h1{
+color:191970;
+text-align : center;}
+p {text-align : center;}
+h3{text-align : center;
+color: ##000080
+/* Valeurs dont la taille est absolue */
+/*font-size: xx-small;
+font-size: x-small;
+*/font-size: small;/*
+font-size: medium;
+font-size: large;
+font-size: x-large;
+font-size: xx-large;*/
+}
+/*image logo mygem.png */
+/*<div class="picture5">&nbsp;</div>*/
+
+div.picture5 {
+height:"150px";
+width:"400px";
+background-image:url(/home/mahine/html/logo.png);
+width: 600px;
+height: 130px;
+margin-left: auto;
+margin-right: auto;
+/*margin:0;
+padding:0;*/
+overflow:hidden
+}
+
+/* tableau */
+table,
+td {
+
+    border: 1px solid #333;
+}
+
+thead,
+tfoot {
+    background-color: #333;
+    color: #fff;
+}
+table {
+ border-width:1px;
+ border-style:dotted;
+ border-color:black;
+ }
+/* Bande latérales */
+html{
+ height:100%;
+}
+body{
+ background-color:#d1e7c0;
+ height:100%;
+ margin:auto;
+ padding:0;
+}
+#bande{
+ width:1024px;
+ min-height:100%;
+ background-color:#fff;
+ margin:auto;
+}

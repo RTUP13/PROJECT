@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Login MYGEM</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="/home/mahine/html/fiche_machine.css" />
+    <link href="static/bootstrap.min.css" rel="stylesheet" media="screen">
+  </head>
+  <body>
+	<br>
+	<div id="bande">
+    	<div class="container">
+	<br>
+	<tr>
+	<center>
+	<br>   	
+	  <h3>Veuillez vous connecter</h3>
+      <br>
+      <form action="" method="post">
+        <input type="text" placeholder="Nom d'utilisateur" name="username" value="{{
+          request.form.username }}" required>
+         <input type="password" placeholder="Mot de passe" name="password" value="{{
+          request.form.password }}" required>
+        <input class="btn btn-default" type="submit" value="Login">
+      </form>
+      {% if error %}
+        <p class="error"><strong>Error:</strong> {{ error }}
+      {% endif %}
+	<tr>
+	<div class="picture5">&nbsp;</div>
+	</div>  
+	</center>  
+	</div>
+  </body>
+</html>

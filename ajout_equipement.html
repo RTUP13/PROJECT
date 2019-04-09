@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+        <meta charset="utf-8" />
+	<META HTTP-EQUIV="Refresh" CONTENT="30">
+    <link rel="stylesheet" href="/home/mahine/html/fiche_machine.css" />
+        <title>My Gem : Ajout d'un équipement</title>
+    </head>
+	<body>
+	<div id="bande">
+		<br>
+		<center>
+	  <p><h3>L'équipement "{{ result['nom'] }}" a bien été enregistré</h3></p>
+	  <h3>Récapitulatif du nouvel équipement</h3>
+	  <script>
+	        var timer = setTimeout(function() {
+		            window.location.href='{{ url_for('mygem') }}'
+        	}, 3000);
+	    </script>
+	  <table>
+	    {% for key, value in result.items() %}
+	    <tr>
+	      <td><b> {{ key }} :</b></td>
+	      <td> {{ value }} </td>
+	    </tr>
+	    {% endfor %}
+	  </table>
+		<div class="picture5">&nbsp;</div>
+	  <p> Redirection vers la page d'accueil dans 5 secondes <p>
+		</center>
+		</div>	
+	</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+	<link rel="stylesheet" href="/home/mahine/html/fiche_machine.css" />
+    <title>My Gem : Suppression</title>
+</head>
+<body>
+	<div id="bande">
+	<center>
+	<br>
+  <h3><p>Liste des équipements enregistrés</p></h3>
+  <h3><p>Veuillez choisir un équipement à supprimer</p></h3>
+  <script>
+  function timedRefresh() {
+        var timer = setTimeout(function() {
+            window.location.href='{{ url_for('ajout_equipements') }}'
+        }, 2000);
+    }
+    </script>
+  <table>
+    {% for equipement in equipements  %}
+    <tr>
+      <td>
+      <p> {{ equipement }} </p>
+    </td>
+    <td>
+      <button type="button" onclick="window.location.href='{{ url_for('supprim_equipements', identifiant=equipement) }}';">Supprimer</button>
+    <td>
+    </tr>
+    {% endfor %}
+  </table>
+  {% if reponse == null or reponse == "" %}
+  <p>{{ reponse }}</p>
+  <button type="button" onclick="window.location.href='{{ url_for('mygem') }}';">Retour à l'acceuil</button>
+  {% else %}
+  <p>{{ reponse }}</p>
+  <script>timedRefresh();</script>
+  {% endif %}
+	<div class="picture5">&nbsp;</div>
+	</center>
+	</div>
+</body>
+</html>

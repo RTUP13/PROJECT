@@ -1,0 +1,283 @@
+
+h1
+{
+	color:	#191970;
+}
+p {text-align : center}
+h3{text-align : center;
+color: #0000FF
+}
+/*image logo mygem.png */
+/*<div class="picture5">&nbsp;</div>*/
+
+div.picture5 {
+height:"150px";
+width:"400px";
+background-image:url(/home/mahine/html/logo.png);
+width: 600px;
+height: 130px;
+margin-left: auto;
+margin-right: auto;
+/*margin:0;
+padding:0;*/
+overflow:hidden
+}
+
+
+/* Bande latérales */
+html{
+ height:100%;
+}
+body{
+ background-color:#d1e7c0;
+ height:100%;
+ margin:auto;
+ padding:0;
+}
+#bande{
+ width:1024px;
+ min-height:100%;
+ background-color:#fff;
+ margin:auto;
+}
+
+
+/* Bande latérales */
+html{
+ height:100%;
+}
+body{
+ background-color:#d1e7c0;
+ height:100%;
+ margin:auto;
+ padding:0;
+}
+#bande{
+ width:1024px;
+ min-height:100%;
+ background-color:#fff;
+ margin:auto;
+}
+
+/*menu déroulant */
+#menu-demo2, #menu-demo2 ul{
+padding:0;
+margin:0;
+list-style:none;
+text-align:center;
+}
+
+#menu-demo2 li{
+display:inline-block;
+position:relative;
+border-radius:8px 8px 0 0;
+}
+
+#menu-demo2 ul li{
+display:inherit;
+border-radius:0;
+}
+
+#menu-demo2 ul li:hover{
+border-radius:0;
+}
+
+#menu-demo2 ul li:last-child{
+border-radius:0 0 8px 8px;
+}
+
+#menu-demo2 ul{
+position:absolute;
+z-index: 1000;
+max-height:0;
+left: 0;
+right: 0;
+overflow:hidden;
+-moz-transition: .8s all .3s;
+-webkit-transition: .8s all .3s;
+transition: .8s all .3s;
+}
+
+#menu-demo2 li:hover ul{
+max-height:15em;
+}
+
+/* background des liens menus */
+#menu-demo2 li:first-child{
+background-color: #65537A;
+background-image:-webkit-linear-gradient(top, #65537A 0%, #2A2333 100%);
+background-image:linear-gradient(to bottom, #65537A 0%, #2A2333 100%);
+}
+
+#menu-demo2 li:nth-child(2){
+background-color: #729EBF;
+background-image: -webkit-linear-gradient(top, #729EBF 0%, #333A40 100%);
+background-image:linear-gradient(to bottom, #729EBF 0%, #333A40 100%);
+}
+
+#menu-demo2 li:nth-child(3){
+background-color: #F6AD1A;
+background-image:-webkit-linear-gradient(top, #F6AD1A 0%, #9F391A 100%);
+background-image:linear-gradient(to bottom, #F6AD1A 0%, #9F391A 100%);
+}
+
+#menu-demo2 li:last-child{
+background-color: #CFFF6A;
+background-image:-webkit-linear-gradient(top, #CFFF6A 0%, #677F35 100%);
+background-image:linear-gradient(to bottom, #CFFF6A 0%, #677F35 100%);
+}
+
+/* background des liens sous menus */
+#menu-demo2 li:first-child li{
+background:#2A2333;
+}
+
+#menu-demo2 li:nth-child(2) li{
+background:#333A40;
+}
+
+#menu-demo2 li:nth-child(3) li{
+background:#9F391A;
+}
+
+#menu-demo2 li:last-child li{
+background:#677F35;
+}
+
+/* background des liens menus et sous menus au survol */
+#menu-demo2 li:first-child:hover, #menu-demo2 li:first-child li:hover{
+background:#65537A;
+}
+
+#menu-demo2 li:nth-child(2):hover, #menu-demo2 li:nth-child(2) li:hover{
+background:#729EBF;
+}
+
+#menu-demo2 li:nth-child(3):hover, #menu-demo2 li:nth-child(3) li:hover{
+background:#F6AD1A;
+}
+
+#menu-demo2 li:last-child:hover, #menu-demo2 li:last-child li:hover{
+background:#CFFF6A;
+}
+
+/* les a href */
+#menu-demo2 a{
+text-decoration:none;
+display:block;
+padding:8px 32px;
+color:#fff;
+font-family:arial;
+}
+
+#menu-demo2 ul a{
+padding:8px 0;
+}
+
+#menu-demo2 li:hover li a{
+color:#fff;
+text-transform:inherit;
+}
+#menu-demo2 li:hover a, #menu-demo2 li li:hover a{
+color:#000;
+}
+
+/* Menu déroulant et bouton de la page d'accueil*/
+.dropbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+.dropdown-content a:hover {background-color: #ddd;}
+.dropdown:hover .dropdown-content {display: block;}
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
+/* fin */
+
+/* body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+/* Button used to open the contact form - fixed at the bottom of the page */
+.open-button {
+  background-color: #555;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: fixed;
+  bottom: 23px;
+  right: 28px;
+  width: 280px;
+}
+
+
+/* The popup form - hidden by default */
+.form-popup {
+  display: none;
+  position: static;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 300px;
+  padding: 10px;
+  background-color: white;
+}
+
+/* Full-width input fields */
+.form-container input[type=text], .form-container input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+/* When the inputs get focus, do something */
+.form-container input[type=text]:focus, .form-container input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit/login button */
+.form-container .btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
