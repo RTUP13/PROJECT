@@ -20,7 +20,7 @@ echo -e "$password\n" | sudo -S apt-get install -y python3-venv
 python3 -m venv venv
 source venv/bin/activate
 
-pip install flask requests, flask_restful markdown
+pip install flask requests flask_restful markdown
 
 chmod +x -R ~/PROJECT
 export FLASK_APP=serveur.py
