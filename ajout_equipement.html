@@ -3,6 +3,11 @@
 <body>
   <h5>L'équipement "{{ result['nom'] }}" a bien été enregistré</h5>
   <h5>Récapitulatif du nouvel équipement</h5>
+  <script>
+        var timer = setTimeout(function() {
+            window.location.href='{{ url_for('mygem') }}'
+        }, 3000);
+    </script>
   <table>
     {% for key, value in result.items() %}
     <tr>
@@ -11,5 +16,6 @@
     </tr>
     {% endfor %}
   </table>
+  <p> Redirection vers la page d'accueil dans 5 secondes <p>
 </body>
 </html>

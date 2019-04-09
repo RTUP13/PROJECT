@@ -29,17 +29,10 @@
                     <td>Temps &eacute;coul&eacute; depuis le dernier arr&ecirc;t </td>
                             <td>{{temps_connexion}}</td>
                 </tr>
-		 <tr>
-                            <td>Charge CPU </td>
-                            <td>{{ChargeCPU}}</td>
-                </tr>
-		 <tr>
-                            <td>Nombre process actif / total</td>
-                            <td>{{NbProcess}}</td>
-                </tr>
                </tbody>
     </table>
     <br>
+    <button type="button" onclick="window.location.href='{{ url_for('mygem') }}';">Retour à l'acceuil</button>
     </center>
     <hr>
     <center><img

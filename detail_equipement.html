@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html>
+<title>My Gem : Détails</title>
+</head>
 <body>
   <h5><p>Liste des équipements enregistrés et leurs détails</p>
     {% for equipement, details in details.items() %}
@@ -17,5 +19,6 @@
     {% endfor %}
   </br>
   <p> {{ reponse }}  </p>
+  <button type="button" onclick="window.location.href='{{ url_for('mygem') }}';">Retour à l'acceuil</button>
 </body>
 </html>

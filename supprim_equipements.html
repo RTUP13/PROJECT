@@ -1,8 +1,19 @@
 <!DOCTYPE html>
 <html>
+<head>
+    <meta charset="utf-8" />
+    <title>My Gem : Suppression</title>
+</head>
 <body>
   <h5><p>Liste des équipements enregistrés</p>
   <p> Veuillez choisir un équipement à supprimer</p></h5>
+  <script>
+  function timedRefresh() {
+        var timer = setTimeout(function() {
+            window.location.href='{{ url_for('ajout_equipements') }}'
+        }, 2000);
+    }
+    </script>
   <table>
     {% for equipement in equipements  %}
     <tr>
@@ -15,6 +26,12 @@
     </tr>
     {% endfor %}
   </table>
-  <p> {{ reponse }}  </p>
+  {% if reponse == null or reponse == "" %}
+  <p>{{ reponse }}</p>
+  <button type="button" onclick="window.location.href='{{ url_for('mygem') }}';">Retour à l'acceuil</button>
+  {% else %}
+  <p>{{ reponse }}</p>
+  <script>timedRefresh();</script>
+  {% endif %}
 </body>
 </html>

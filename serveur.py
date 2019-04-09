@@ -88,15 +88,14 @@ def ajout_equipements():
             equipements.append(shelf[key]['identifiant'])
         return render_template('supprim_equipements.html', equipements=equipements)
 
-@app.route('/MYGEM/equipements/del/<string:identifiant>', methods=['DELETE', 'GET'])
+@app.route('/MYGEM/equipements/del/<string:identifiant>', methods=['POST', 'GET'])
 def supprim_equipements(identifiant):
-        identifiant = identifiant
-        shelf = get_db()
-        # Si la clé n'existe pas dans la base de donnée, on retourne erreur 404
-        if not (identifiant in shelf):
-            return """L'équipement {} est introuvable """.format(identifiant),404
-        del shelf[identifiant]
-        return render_template('supprim_equipements.html', reponse="""L'équipement {} à bien été supprimer""".format(identifiant)),204
+    shelf = get_db()
+    # Si la clé n'existe pas dans la base de donnée, on retourne erreur 404
+    if not (identifiant in shelf):
+        return """L'équipement {} est introuvable """.format(identifiant),404
+    del shelf[identifiant]
+    return render_template('supprim_equipements.html',reponse=("""L'équipement {} à bien été supprimer""").format(identifiant))
 
 # @app.route('/MYGEM/formajout/')
 # def form_ajout():
