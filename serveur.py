@@ -100,7 +100,7 @@ def supprim_equipements(identifiant):
     if not (identifiant in shelf):
         return """L'équipement {} est introuvable """.format(identifiant),404
     del shelf[identifiant]
-    return render_template('supprim_equipements.html',reponse=("Équipement {} à bien été supprimer").format(identifiant))
+    return render_template('supprim_equipements.html',reponse=("Le client {} à bien été supprimer").format(identifiant))
 
 # @app.route('/MYGEM/formajout/')
 # def form_ajout():
