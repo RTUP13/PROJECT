@@ -12,17 +12,15 @@
 		<center>
 	  <h3><p>Liste des équipements enregistrés et leurs détails</p></h3>
 	    {% for equipement, details in details.items() %}
-	    <ul>
-	    <li>
-	    <p> Détails de la machine {{ equipement }}</p>
-	    </li>
+	<p><h3> Détails de la machine {{ equipement }}</h3></p>
+	    
 	
 	      <p> identifiant : {{ details.identifiant }}
 	      <p> nom : {{ details.nom }}
 	      <p> type: {{ details.type }}
 	      <p> ip_controleur : {{ details.ip }}
 	        <br>
-	   </ul>
+	   
 	    {% endfor %}
 		
 	  </br>
