@@ -43,7 +43,7 @@
           	<tr><td><b>Identifiant*</b></td><td><input type="text" name="identifiant" placeholder="identifiant" required></td></tr>
             <tr><td><b>Nom</b></td><td><input type="text" name="nom" placeholder="Nom"></td></tr>
             <tr><td><b>Type*</b></td><td><input type="text" name="type" placeholder="Type de machine" required></td></tr>
-            <tr><td><b>Adresse IP*</b></td><td><input type="text" name="ip_controleur"  id="ip" placeholder="adresse IP" required></td></tr>
+            <tr><td><b>Adresse IP*</b></td><td><input type="text" name="ip_controleur"  id="ip" placeholder="adresse IP" minlength="9" maxlength="11" required></td></tr>
             <tr><td><button type="submit" class="btn">Enregistrer</button></td><td><button type="button" class="btn cancel" onclick="closeForm()">Annuler</button></td></tr>
             </table>
           </form>
