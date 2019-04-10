@@ -3,6 +3,7 @@ cd PROJECT
 mkdir templates
 mkdir -p static/css
 mkdir -p static/js
+mkdir -p static/images
 
 mv MYGEM.css fiche_machine.css static/css/
 
