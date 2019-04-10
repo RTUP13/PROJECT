@@ -8,10 +8,12 @@
 <body>
   <div id="bande">
   <h3><p>Il se peut que le client que vous essayé de joindre n'existe pas ou soit inacessible</p></h3>
-  <h3><p> 1. Veuillez vérifier que les informations du client "{{ identifiant }}" sont corrrectes</p></h3>
-  <h3><p> 2. Vérifier également que le client est bien connecté au réseau </p></h3>    
+  <ol>
+  <li> Veuillez vérifier que les informations du client "{{ identifiant }}" sont corrrectes</li>
+  <li> Vérifier également que le client est bien connecté au réseau </li>
+</ol>
   <li>
-  <p> Détails du client {{ identifiant }} </p>
+  <p><h4> Détails du client "{{ identifiant }}" </h4></p>
   </li>
 
     <p> identifiant : {{ identifiant }} </p>
@@ -21,10 +23,10 @@
     <p><ol><b>NB:</b><li>L'identifiant et l'adresse IP renseigner sur le serveur doivent correspondre à une machine sur le réseau.</li></p>
        <li> L'identifiant doit correspondre à celui donné à la machine lors de l'installation du client.</li>
      </ol>
-<button type="button" onclick="window.location.href='{{ url_for('url_for('equipement', identifiant=identifiant') }}';">Réessayer</button>
+<button type="button" onclick="window.location.href='{{ url_for('equipement', identifiant=identifiant) }}';">Réessayer</button>
 <button type="button" onclick="window.location.href='{{ url_for('supprim_equipements', identifiant=identifiant) }}';">Supprimer l'équipement</button>
 <button type="button" onclick="window.location.href='{{ url_for('mygem') }}';">Retour à l'acceuil</button>
-    
+
 <div class="picture5">&nbsp;</div>
 </div>
 </body>
