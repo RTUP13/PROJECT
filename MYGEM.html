@@ -40,8 +40,9 @@
           <form action="{{ url_for('ajout_equipements') }}" method="POST" class="form-container">
             <table>
             <h3>Ajouter un équipement</h3>
-          	<tr><td><b>Identifiant*</b></td><td><input type="text" name="identifiant" placeholder="identifiant" required></td></tr>
-            <tr><td><b>Nom</b></td><td><input type="text" name="nom" placeholder="Nom"></td></tr>
+            <tr><td><b>Identifiant*</b></td><td><input type="text" name="identifiant" placeholder="identifiant" required></td></tr>
+            <tr><b>NB:</b>L'identifiant doit correspondre à une machine ayant le client Mygem</tr>
+	    <tr><td><b>Nom</b></td><td><input type="text" name="nom" placeholder="Nom"></td></tr>
             <tr><td><b>Type*</b></td><td><input type="text" name="type" placeholder="Type de machine" required></td></tr>
             <tr><td><b>Adresse IP*</b></td><td><input type="text" name="ip_controleur" id="ip" placeholder="adresse IP" minle pattern="(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)" required></td></tr>
             <tr><td><button type="submit" class="btn">Enregistrer</button></td><td><button type="button" class="btn cancel" onclick="closeForm()">Annuler</button></td></tr>
