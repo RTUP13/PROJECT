@@ -3,11 +3,13 @@
 import markdown
 import shelve
 import os,subprocess,json,requests
+
 # Importation du framework
 from flask import Flask,g,request,jsonify, render_template,redirect, url_for, session, escape
 from flask_restful import Resource, Api, reqparse
+
 #Création d'une instance de Flasks
-#Serveur :
+
 
 
 # Création d'une instance de Flask
@@ -102,24 +104,6 @@ def supprim_equipements(identifiant):
     del shelf[identifiant]
     return render_template('supprim_equipements.html',reponse=("Le client {} à bien été supprimer").format(identifiant))
 
-# @app.route('/MYGEM/formajout/')
-# def form_ajout():
-#     return render_template('form_ajout.html')
-
-# @app.route('/MYGEM/equipements/del/')
-# def form_suppr():
-#     return render_template('supprim_equipements.html,')
-
-class ListEquipements(Resource):
-    def get(self):
-        shelf = get_db()
-        keys = list(shelf.keys())
-
-        devices = []
-
-        for key in keys:
-            devices.append(shelf[key])
-        return {'message':'Réussie', 'data': devices }, 200
 
 @app.errorhandler(KeyError)
 def handle_global_error(e):
@@ -147,16 +131,6 @@ def equipement(identifiant):
         type= shelf[identifiant]['type']
         ip= shelf[identifiant]['ip_controleur']
         return render_template('client_absent.html', identifiant=identifiant, nom=nom, type=type, ip=ip)
-    # try:
-    #
-    #
-    # except KeyError:
-    #     keys = list(shelf.keys())
-    #     details = dict()
-    #     nom=shelf[identifiant]['nom']
-    #     type= shelf[identifiant]['type']
-    #     ip= shelf[identifiant]['ip_controleur']
-    #     return render_template('client_absent.html', identifiant=identifiant, nom=nom, type=type, ip=ip)
 
     reponse = reponse.json()
     nom = shelf[identifiant]['nom']
@@ -180,4 +154,4 @@ def listequipement():
      return render_template("detail_equipement.html", details=details), 201
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5000)
+    app.run(debug=True, port=10000)
