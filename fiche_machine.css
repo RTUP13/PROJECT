@@ -21,7 +21,7 @@ font-size: xx-large;*/
 div.picture5 {
 height:"150px";
 width:"400px";
-background-image: url("/home/client2/PROJECT/static/images/logo.png");
+background-image: url("/static/images/logo.png");
 width: 600px;
 height: 130px;
 margin-left: auto;
