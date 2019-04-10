@@ -20,6 +20,7 @@
     <p><ol><b>NB:</b><li>L'identifiant et l'adresse IP renseigner sur le serveur doivent correspondre à une machine sur le réseau.</li></p>
        <li> L'identifiant doit correspondre à celui donné à la machine lors de l'installation du client.</li>
      </ol>
+<button type="button" onclick="window.location.href='{{ url_for('supprim_equipements', identifiant=identifiant) }}';">Supprimer l'équipement</button>
 <button type="button" onclick="window.location.href='{{ url_for('mygem') }}';">Retour à l'acceuil</button>
 <div class="picture5">&nbsp;</div>
 </div>
