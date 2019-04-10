@@ -7,7 +7,8 @@ read -s password
 
 echo -e "$password\n" | sudo -S apt-get install -y python3-venv
 python3 -m venv venv
-source venv/bin/activate
+source venv/bin/activate 
+touch client.py sondes.py
 
 pip install flask requests
 
