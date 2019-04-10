@@ -1,7 +1,3 @@
-touch client.py sondes.py
-
-python deploiement_client.py
-
 host=`sudo ifconfig | grep 192 | cut -d"t" -f2 | cut -d"n" -f1`
 
 echo "Entrez votre mot de passe système"
@@ -12,6 +8,10 @@ python3 -m venv venv
 source venv/bin/activate 
 
 pip install flask requests
+
+touch client.py sondes.py
+
+python deploiement_client.py
 
 chmod +x client.py sondes.py
 export FLASK_APP=client.py
