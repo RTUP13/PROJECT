@@ -25,10 +25,10 @@ git clone --single-branch --branch mygem_client https://github.com/RTUP13/PROJEC
 
 cd PROJECT
 
-./deploiement_client.sh
-
 The first command is used to import the client branch on github which will be copied to the Project directory in which we enters
 thanks to the second command.
+
+./deploiement_client.sh
 
 Then we execute a deployment script with the last command. During the installation it will be necessary to enter the system 
 password and an identifier that will have to be mentioned on the application when adding a machine.
