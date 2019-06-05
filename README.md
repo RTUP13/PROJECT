@@ -1,99 +1,115 @@
-# MY GEM Monitoring system 
-## Presentation 
-MYGEM is a monitoring system created by 5 second year students preparing a DUT Réseaux et Télécoms at IUT de Villetaneuse. 
-The aim of the project was to learn how monitoring systems work and implemented the knowledge we acquired from our school courses. 
-Different programming languages were used. 
-All responses will have the form
+## Base de données des équipements du réseau
 
-```json
+# Utilisation
+### Récupération des hôtes présent dans la base de données.
+Les réponses seront de la forme suivante
+
+```JSON
 {
-    "data": "Mixed type holding the content of the response",
-    "message": "Description of what happened"
+  "Machine" : "Nom de la machine",
+  "nom": "Machine Mahine",
+  "type" : "pc_bureau",
+  "ip_controleur" : "192.168.0.2"
 }
-```
+```  
+## Liste des équipements surveillés
+**Définition:**
 
-Subsequent response definitions will only detail the expected value of the `data field`
+`GET /equipements`
 
-### List all devices
+**Réponse:**
 
-**Definition**
+- `200 OK`  Requête réussie
 
-`GET /devices`
-
-**Response**
-
-- `200 OK` on success
-
-```json
-[
-    {
-        "identifier": "floor-lamp",
-        "name": "Floor Lamp",
-        "device_type": "switch",
-        "controller_gateway": "192.1.68.0.2"
-    },
-    {
-        "identifier": "samsung-tv",
-        "name": "Living Room TV",
-        "device_type": "tv",
-        "controller_gateway": "192.168.0.9"
-    }
+```JSON
+[ {
+  "identifiant" : "Machine 1",
+  "nom": "Machine Mahine",
+  "type" : "pc_bureau",
+  "ip_controleur" : "192.168.0.2"
+}
+{
+  "identifiant" : "Machine 2",
+  "nom": "Machine Hugo ",
+  "type" : "pc_bureau",
+  "ip_controleur" : "192.168.0.3"
+  }
 ]
 ```
+## Inscription d'un nouvel équipement dans la base
+**Définition:**
 
-### Registering a new device
+`POST /equipements`
 
-**Definition**
+**Arguments:**
 
-`POST /devices`
+- `"identifiant" : string`  Un identifiant unique pour la machine
+- `"nom": string`  Le nom commun de la machine
+- `"type" : string`  Le type d'équipement
+- `"ip_controlleur" : string`  L'adresse IP à utiliser pour controller l'équipement.
 
-**Arguments**
+Si l'équipement existe déjà, ses informations seront écrasées
 
-- `"identifier":string` a globally unique identifier for this device
-- `"name":string` a friendly name for this device
-- `"device_type":string` the type of the device as understood by the client
-- `"controller_gateway":string` the IP address of the device's controller
+- `201 Créer`  Requête réussie
 
-If a device with the given identifier already exists, the existing device will be overwritten.
-
-**Response**
-
-- `201 Created` on success
-
-```json
+```JSON
 {
-    "identifier": "floor-lamp",
-    "name": "Floor Lamp",
-    "device_type": "switch",
-    "controller_gateway": "192.1.68.0.2"
+  "identifiant": "Machine 2",
+  "nom": "Machine Hugo ",
+  "type": "pc_bureau",
+  "ip_controleur": "192.168.0.3"
 }
 ```
 
-## Lookup device details
+## Vérifie les détails de l'équipement
 
-`GET /device/<identifier>`
+`GET /equipements/<identifiant>`
 
-**Response**
+**Réponse:**
 
-- `404 Not Found` if the device does not exist
-- `200 OK` on success
+- `404 Not Found`  L'équipement n'existe pas
+- `200 OK`  Requête réussie
 
-```json
+```JSON
 {
-    "identifier": "floor-lamp",
-    "name": "Floor Lamp",
-    "device_type": "switch",
-    "controller_gateway": "192.1.68.0.2"
+  "identifiant" : "Machine 2",
+  "nom": "Machine Hugo",
+  "type" : "pc_bureau",
+  "ip_controleur" : "192.168.0.3"
 }
 ```
+## Suppression d'un équipement de la base de données
 
-## Delete a device
+**Définition**
 
-**Definition**
+`DELETE /equipements/<identifiant>`
 
-`DELETE /devices/<identifier>`
+**Réponses**
 
-**Response**
+- `404 Not Found`  L'équipement n'existe pas
+- `204 OK` Pas de contenu (Contenu supprimer)
 
-- `404 Not Found` if the device does not exist
-- `204 No Content` on success
+## Remonté des informations entre le client et le serveur
+Les réponses seront de la forme suivante
+
+```JSON
+{
+  "identfiant" : "Machine 2",
+  "data" : {
+  "nom_utilisateur": "Mahine",
+  "Mémoire libre en Go" : " 4012 Go",
+  "Température du CPU en dégrés" : "41°C",
+  "Temps écoulé depuis le dernier arrêt en secondes" : "16:55"}
+
+}
+```  
+### Donner remplie dans la base de données.
+```JSON
+{
+  "identifiant": "Machine 2",
+  "nom_utilisateur": "Mahine",
+  "température": "21°C",
+  "temps_connexion": "16:55",
+  "memoire" : "4012 Go",
+}
+```
