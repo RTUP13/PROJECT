@@ -1,3 +1,10 @@
+# MY GEM Monitoring system 
+## Presentation 
+MYGEM is a monitoring system created by 5 second year students preparing a DUT Réseaux et Télécoms at IUT de Villetaneuse. 
+The aim of the project was to learn how monitoring systems work and implemented the knowledge we acquired from our school courses. 
+Different programming languages were used. 
+All responses will have the form
+
 ## Base de données des équipements du réseau
 
 # Utilisation
