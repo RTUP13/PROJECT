@@ -2,7 +2,11 @@
 ## Presentation 
 MYGEM is a monitoring system created by 5 second year students preparing a DUT Réseaux et Télécoms at IUT de Villetaneuse. 
 The aim of the project was to learn how monitoring systems work and implemented the knowledge we acquired from our school courses. 
-Different programming languages were used. 
+Different programming languages were used. The programming languages used for the creation of the app : 
+Python :
+The project greatyly depends on python and the implementation of it's web oriented modules. The server was mainly coded using flask 
+
+, HTML5, CSS3, Bash  
 All responses will have the form
 
 ## Base de données des équipements du réseau
